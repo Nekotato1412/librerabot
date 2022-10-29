@@ -121,6 +121,11 @@ client.on(Events.MessageReactionRemove, async (reaction, user) => {
                     newVotes = 0
                 }
                await client.characterVotes.set(reaction.message.id, newVotes)
+
+               if (newVotes == 0) {
+                // Clear empty votes to avoid performance issues
+                client.characterVotes.delete(reaction.message.id)
+               }
             }
         }
     }
