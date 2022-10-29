@@ -116,7 +116,10 @@ client.on(Events.MessageReactionRemove, async (reaction, user) => {
 
             if (client.characterVotes.has(reaction.message.id)) {
                 const votes = await client.characterVotes.get(reaction.message.id)
-                const newVotes = votes - 1
+                let newVotes = votes - 1
+                if (newVotes < 0) {
+                    newVotes = 0
+                }
                await client.characterVotes.set(reaction.message.id, newVotes)
             }
         }
