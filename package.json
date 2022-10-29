@@ -7,7 +7,7 @@
     "nodemon": "^2.0.20"
   },
   "name": "librerabot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
